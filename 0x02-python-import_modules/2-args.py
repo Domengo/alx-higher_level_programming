@@ -12,4 +12,4 @@ else:
     else:
         print("{} arguements:".format(n - 1))
     for j in range(1, n):
-        print("{}: {}".format(n, argv[j]))
+        print("{}: {}".format(j, argv[j]))

@@ -4,8 +4,8 @@ if __name__ == "__main__":
 
     n = len(argv)
 
-    if (n < 2):
-        print("{} argument".format(n - 1))
+    if (n == 0):
+        print("{} arguments.".format(n))
     else:
         if (n == 2):
             print("{} argument:".format(n - 1))

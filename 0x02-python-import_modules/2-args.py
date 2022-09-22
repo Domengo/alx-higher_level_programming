@@ -11,5 +11,5 @@ else:
         print("{} arguement:".format(n - 1))
     else:
         print("{} arguements:".format(n - 1))
-    for n in range(1, n):
-        print("{}: {}".format(n, argv[n]))
+    for j in range(1, n):
+        print("{}: {}".format(n, argv[j]))

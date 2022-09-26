@@ -1,0 +1,23 @@
+#!/usr/bin/python3
+def no_c(my_string):
+    l = len(my_string)
+
+    g = 0
+
+    new_string = my_string[:]
+
+    for i in range(l):
+        if (my_string[i] == 'c' or my_string[i] == 'C'):
+            new_string = new_string[:(i - g)] + my_string[(i + 1):]
+            g += 1
+    return (new_string)
+
+"""
+#!/usr/bin/python3
+def no_c(my_string):
+    result = []
+    for letter in my_string:
+        if letter != 'c' and letter != 'C':
+            result.append(letter)
+    return ''.join(result)
+"""

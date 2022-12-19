@@ -1,7 +1,5 @@
 #!/usr/bin/node
 
 const { argv } = require('process');
-const conj = 'is';
-argv.forEach((argv, conj) => {
-  console.log(argv[3] + conj + argv[4]);
-});
+const conj = ' is ';
+console.log(argv[2] + conj + argv[3]);

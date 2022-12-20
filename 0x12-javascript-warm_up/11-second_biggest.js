@@ -1,8 +1,7 @@
 #!/usr/bin/node
-const { argv } = require('process');
-const args = argv.length;
-if (args.length <= 1) {
-  console.log(0);
+
+if (process.argv.length < 4) {
+  console.log('0');
 } else {
   const size = process.argv.length;
   const ints = [];

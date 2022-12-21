@@ -3,5 +3,5 @@ exports.converter = function (base) {
   function conv (n) {
     return n.toString(base);
   }
-  return n;
+  return conv;
 };

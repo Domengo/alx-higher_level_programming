@@ -13,7 +13,7 @@ if __name__ == "__main__":
     session = Session(bind=engine)
     states = session.query(State).first()
 
-    if (states == 0):
+    if states is None:
         print("Nothing", end="")
     else:
         print(f"{states.id}: {states.name}")

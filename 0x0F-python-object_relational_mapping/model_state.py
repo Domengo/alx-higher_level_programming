@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, MetaData
+
+mymetadata = MetaData()
 
 Base = declarative_base()
 
@@ -8,6 +10,9 @@ Base = declarative_base()
 
 
 class State(Base):
+    """
+    class with id and name attributes of each state
+    """
     __tablename__ = 'states'
-    id = Column(Integer, primary_key=True, nullable=False)
+    id = Column(Integer, unique=True, primary_key=True, nullable=False)
     name = Column(String(128), nullable=False)

@@ -11,7 +11,7 @@ if __name__ == "__main__":
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.
                            format(argv[1], argv[2], argv[3]))
     session = Session(bind=engine)
-    states = session.query(State).order_by(State.id).filter(State.id == 1).all()
+    states = session.query(State).first()
 
     for row in states:
         if (row == 0):

@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-lists all states from db hbtn_0e_6_usa
+lists the first state from db hbtn_0e_6_usa
 """
 from sys import argv
 from sqlalchemy import create_engine
@@ -14,6 +14,6 @@ if __name__ == "__main__":
     states = session.query(State).first()
 
     if states is None:
-        print("Nothing", end="")
+        print("Nothing")
     else:
         print(f"{states.id}: {states.name}")

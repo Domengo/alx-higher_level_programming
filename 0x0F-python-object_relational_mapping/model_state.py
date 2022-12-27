@@ -1,12 +1,12 @@
 #!/usr/bin/python3
+"""
+create state class that inherits from base
+"""
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, MetaData
 
 mymetadata = MetaData()
-
 Base = declarative_base()
-
-"""create state class that inherits from base"""
 
 
 class State(Base):

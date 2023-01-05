@@ -7,14 +7,16 @@ from sqlalchemy import (create_engine)
 
 
 if __name__ == '__main__':
+    state_name = argv[4]
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
                             .format(argv[1], argv[2], argv[3]))
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    i = session.query(State).first()
-    if i is None:
-        print("Nothing")
+    i = session.query(State).filter(State.name == state_name).first()
+    if i:
+        print(i.id)
     else:
-        print(i.id, i.name, sep=": ")
+        print("Not found")
+
     session.close()

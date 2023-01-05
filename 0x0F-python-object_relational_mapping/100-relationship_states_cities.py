@@ -1,9 +1,10 @@
 #!/usr/bin/python3
 
-from model_state import Base, State
+from relationship_state import Base, State
 from sqlalchemy.orm import sessionmaker
 from sys import argv
 from sqlalchemy import (create_engine)
+from relationship_city import City
 
 
 if __name__ == '__main__':
@@ -12,9 +13,13 @@ if __name__ == '__main__':
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    i = session.query(State).first()
-    if i is None:
-        print("Nothing")
-    else:
-        print(i.id, i.name, sep=": ")
+    
+    new_state = State(name='California')
+    new_city = City(name="San Francisco")
+    new_state.cities.append(new_city)
+
+    session.add(new_city)
+    session.add(new_state)
+    session.commit()
+
     session.close()

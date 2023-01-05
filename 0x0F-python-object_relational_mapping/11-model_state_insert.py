@@ -12,9 +12,10 @@ if __name__ == '__main__':
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    i = session.query(State).first()
-    if i is None:
-        print("Nothing")
-    else:
-        print(i.id, i.name, sep=": ")
+    
+    new_state = State(name='Louisiana')
+    session.add(new_state)
+    session.commit()
+
+    print(new_state.id)
     session.close()

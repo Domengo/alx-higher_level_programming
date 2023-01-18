@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+"""find peak"""
+
+
 def find_peak(list_of_integers):
     list_of_integers.sort()
     if list_of_integers == []:

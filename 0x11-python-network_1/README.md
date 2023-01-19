@@ -61,6 +61,3 @@ What you should learn from this project:
 * Write a Python script that takes in 3 strings and sends a search request to the Twitter API
 
 ---
-
-## Author
-* **Jhoan Stiven Zamora Caicedo** - [jzamora5](https://github.com/jzamora5)

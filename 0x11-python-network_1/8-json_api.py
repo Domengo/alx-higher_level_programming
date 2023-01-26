@@ -10,23 +10,19 @@ Otherwise:
 - Display Not a valid JSON if the JSON is invalid
 - Display No result if the JSON is empty
 """
-import sys
+
 import requests
+from sys import argv
 
-q = "" if len(sys.argv) < 2 else sys.argv[1]
-
-url = "http://0.0.0.0:5000/search_user"
-response = requests.post(url, json={'q': q})
-
-try:
-    data = response.json()
-except ValueError:
-    print("Not a valid JSON")
-    sys.exit(1)
-
-if not data:
-    print("No result")
-    sys.exit(1)
-
-for user in data:
-    print("[{}] {}".format(user['id'], user['name']))
+if __name__ == '__main__':
+    url = "http://0.0.0.0:5000/search_user"
+    data = {"q": argv[1][0] if len(argv) > 1 else ""}
+    response = requests.post(url, data=data)
+    try:
+        d = response.json()
+        if not d:
+            print("No result")
+        else:
+            print("[{}] {}".format(d.get("id"), d.get("name")))
+    except ValueError:
+        print("Not a valid JSON")

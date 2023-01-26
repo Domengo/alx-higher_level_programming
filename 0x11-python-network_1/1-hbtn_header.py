@@ -11,5 +11,4 @@ from sys import argv
 url = argv[1]
 req = urllib.request.Request(url)
 with urllib.request.urlopen(req) as response:
-    var = dict(response.headers).get("X-Request-Id")
-    print(var)
+    print(dict(response.headers).get("X-Request-Id"))

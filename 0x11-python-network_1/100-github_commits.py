@@ -10,15 +10,15 @@ Write a Python script that takes 2 arguments in order to solve this challenge.
 
 import requests
 from sys import argv
+if __name__ == '__main__':
+    OWNER = argv[2]
+    REPO = argv[1]
 
-OWNER = argv[2]
-REPO = argv[1]
+    url = f'https://api.github.com/repos/{OWNER}/{REPO}/commits'
 
-url = f'https://api.github.com/repos/{OWNER}/{REPO}/commits'
+    r = requests.get(url)
+    data = r.json()
 
-r = requests.get(url)
-data = r.json()
-
-author = data[0]["commit"]["author"]
-name = author["name"]
-print(f'{data[0]["sha"]}: {name}')
+    author = data[0]["commit"]["author"]
+    name = author["name"]
+    print(f'{data[0]["sha"]}: {name}')

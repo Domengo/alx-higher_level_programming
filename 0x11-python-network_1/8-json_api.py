@@ -18,10 +18,6 @@ q = "" if len(sys.argv) < 2 else sys.argv[1]
 url = "http://0.0.0.0:5000/search_user"
 response = requests.post(url, json={'q': q})
 
-if response.status_code != 200:
-    print("Error:", response.status_code)
-    sys.exit(1)
-
 try:
     data = response.json()
 except ValueError:

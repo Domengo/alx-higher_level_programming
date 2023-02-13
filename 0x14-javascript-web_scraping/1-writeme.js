@@ -8,5 +8,5 @@ fs.writeFile(file, stringToWrite, 'utf-8', (err) => {
   if (err) {
     console.error(err);
   }
-  console.log(`The string was written to ${file}`);
+  console.log(stringToWrite);
 });
